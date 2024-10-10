@@ -25,3 +25,15 @@ def get_ship_names_diesel_engine(file_path, attribute, value):
 
     return diesel_ship_names
 
+def get_unique_engine_models(file_path, unique_value):
+
+    # Load excel file into the dataframe
+    df = pd.read_excel(file_path, sheet_name='Listing')
+
+    #Extract unique engine models and drop the NaN values
+    unique_engine_models = df[unique_value].dropna().unique()
+
+    #Convert to list
+    return unique_engine_models.tolist()
+
+
