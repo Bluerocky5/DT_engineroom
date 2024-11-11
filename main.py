@@ -1,20 +1,18 @@
-from ships import get_ship_names_diesel_engine
-from ships import get_unique_engine_models
+from engine import DieselEngine
+from fuelcell import Fuelcell
 
-#define path of the excel file
-file_path = 'D:\School\Master\Master Thesis\Data\Data_10_10.xlsx'
+#Initialise Diesel 2-stroke characteristics
+ratedpower = 16000000   #Maximum continous rated power of a 6G60ME-C9.5 engine (in W)
+nengines= 1             #Amount of engines in the system
+max_rpm = 97            #Maximum continuous rated rounds per minute (in RPM)
 
-#Define what needs to be extracted from the file
-attribute = 'Power Type'
-value = 'Steam Turbine'
-unique_value = 'Main Engine Model'
+#Initialise Fuel Cell characteristics
 
-#Call the function to get the ship names based on the attribute
-diesel_ship_names = get_ship_names_diesel_engine(file_path, attribute, value)
 
-print('Ships with diesel engine:' , diesel_ship_names)
 
-#Call the function to get unique engine models
-unique_models = get_unique_engine_models(file_path, unique_value)
+#Define indexes that define the control
+#Energy Efficiency Design Index (EEDI)
+EEDI = (P_total * sfc * C_f) / (DWT * V_d)
 
-print('Unique engine models :', unique_models)
+#Energy Efficiency Existing Ship Index (EEXI)
+EEXI = EEDI
