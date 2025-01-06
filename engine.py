@@ -32,7 +32,7 @@ class DieselEngine:
         
         return power
     
-    def fuel_efficiency(self, power_req, nengines):
+    def fuel_efficiency(self, engine_load):
         """
     Calculate the fuel efficiency for a specific power requirement based on engine load.
 
@@ -46,11 +46,8 @@ class DieselEngine:
                based on engine load. This is calculated using a quadratic function where engine load
                affects the efficiency.
         """
-        engine_load = power_req / (self.ratedpower * nengines)
 
-        SFOC= 0.455 * (engine_load)^2 - (0.71 * engine_load) + 1.28
-
-        return SFOC
+        return 0.455 * (engine_load**2) - (0.71 * engine_load) + 1.28
 
     def engine_status(self, power_req):
         """
